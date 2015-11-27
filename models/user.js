@@ -36,7 +36,7 @@ User.prototype.save = function(callback) {
 };
 
 User.get = function(name, callback) {
-	mongo.open(function(error, db) {
+	mongo.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}

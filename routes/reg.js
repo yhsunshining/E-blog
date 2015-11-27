@@ -19,12 +19,12 @@ router.post('/', function(req, res, next) {
 	}
 	var  md5 = crypto.createHash('md5');
 	var password = md5.update(req.body.password).digest('hex');
-	var user = new User({
+	var userObj = new User({
 		name:name,
 		password:password
 	});
 	
-	User.get(user.name,function(err,user){
+	User.get(userObj.name,function(err,user){
 		if(err){
 			req.flash('error',err);
 			return res.redirect('/');
@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
 			req.flash('error','user exist');
 			return res.redirect('/');
 		}
-		user.save(function(err,user){
+		userObj.save(function(err,user){
 			if(err){
 				req.flash('error',err);
 				return res.redirect('/reg');
