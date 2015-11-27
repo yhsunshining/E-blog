@@ -13,6 +13,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
 	var md5 = crypto.createHash('md5');
 	var password = md5.update(req.body.password).digest("hex");
+	console.log(password)
 	User.get(req.body.username,function(err,user){
 		if(!user){
 			req.flash('error',"user doesn't exist");
@@ -23,11 +24,10 @@ router.post('/', function(req, res) {
 			return res.redirect('/login');
 		}
 		else {
-			res.session.user = user;
+			req.session.user = user;
 			req.flash('success','login success');
 			res.redirect('/');s
 		}
 	})
-	res.render('login',{title:"login"});
 });
 module.exports = router;
