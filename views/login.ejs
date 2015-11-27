@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('content/meta',{title:title}) %>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+	</head>
+	<body>
+		<form class="form" action="/reg" method="post">
+			<input class="form-control" type="text" name="username" id="username" value="" />
+			<input class="form-control" type="password" name="password" id="password" value="" />
+			<input class="btn btn-primary" type="submit" value="submit"/>
+		</form>
+	</body>
+</html>

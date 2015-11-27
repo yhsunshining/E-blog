@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
 
 module.exports = function(app) {
-	app.use('/',require('./root'));
-	app.use('/TEST',require('./test'));
+	app.use('/', require('./root'));
+	app.use('/TEST', require('./test'));
+	app.use('/reg', require('./reg'));
+	app.use('/login', require('./login'))
 };
 
