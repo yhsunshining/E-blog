@@ -1,0 +1,15 @@
+<% if (success) { %>
+	<p>
+		<div><%= success %></div>
+	</p>
+	<% }else { %>
+	<p>
+		<div><%= error %></div>
+	</p>
+<% } %>
+
+<% if (user != null) {%>
+	<div>username:<%= user.name %></div>
+	<div>id:<%= user._id %></div>
+	<a href="/logout">logout</a>
+<% } %>

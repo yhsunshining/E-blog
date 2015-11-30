@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<%- include('content/meta',{title:title}) %>
+	</head>
+
+	<body>
+		<form class="form" method="post">
+			<label for="title">标题：</label>
+			<input class="form-control" type="text" name="title" id="title"/>
+			<label for="content">正文：</label> 
+			<textarea class="form-control" name="content" id="content" rows="20" cols="100"></textarea>
+			<input class="btn btn-primary" type="submit" value="发表" />
+		</form>
+		<%- include content/flash %>
+	</body>
+
+</html>

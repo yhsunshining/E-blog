@@ -6,10 +6,32 @@
 	</head>
 
 	<body>
-		<h1><%=title%></h1>
-		<p>Welcome to
-			<%= title %>
-		</p>
+		<header>
+			<h1><%=title%></h1>
+			<p>Welcome to
+				<%= title %>
+			</p>
+			<nav class="nav">
+				<ul>
+					<li><a href="login">login</a></li>
+					<li><a href="post">post</a></li>
+				</ul>
+			</nav>
+		</header>
+		<%- include content/flash %>
+			<% posts.forEach(function (post, index) { %>
+				<p>
+					<h2><a href="#"><%= post.title %></a></h2></p>
+				<p class="info">
+					作者：
+					<a href="#">
+						<%= post.author %>
+					</a> | 日期：
+					<%= post.time %>
+				</p>
+				<p>
+					<%- post.content %>
+				</p>
+			<% }) %>
 	</body>
-
 </html>
