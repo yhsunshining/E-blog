@@ -10,23 +10,22 @@ var settings = require('./settings');
 var flash = require('connect-flash');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-var datePrototype=require('./utils/date');
-
+var datePrototype = require('./utils/date');
+var multer = require('multer')
 
 var app = express();
 app.use(partials());
-
-//set session
+	//set session
 app.use(session({
 	secret: settings.cookieSecret,
-	key:settings.db,
-	cookie:{
-		maxAge:1000*60*60*24*30
+	key: settings.db,
+	cookie: {
+		maxAge: 1000 * 60 * 60 * 24 * 30
 	},
-	store:new MongoStore({
-		db:settings.db,
-		host:settings.host,
-		port:settings.port
+	store: new MongoStore({
+		db: settings.db,
+		host: settings.host,
+		port: settings.port
 	})
 }));
 
@@ -40,11 +39,20 @@ app.use(flash());
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(multer({
+	dest: './public/uploads/',
+	rename: function(fieldname, filename) {
+		return filename;
+	}
+}));
 
 routes(app);
 // catch 404 and forward to error handler
@@ -77,6 +85,7 @@ app.use(function(err, req, res, next) {
 		error: {}
 	});
 });
+
 
 
 module.exports = app;
