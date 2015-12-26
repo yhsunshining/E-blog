@@ -12,8 +12,8 @@
 			<input v-model="title" class="form-control" type="text" name="title" id="title"/>
 			<label for="content">正文：</label> 
 			<br />
-			<textarea v-model="content" @change="emitTest" debounce="300" class="form-control" name="content" id="content" rows="10" cols="40"></textarea>
-			<div class="markdown" v-on:test="callback" v-html="content | marked"></div>
+			<textarea v-model="content" debounce="300" class="form-control" name="content" id="content" rows="10" cols="40"></textarea>
+			<div class="markdown" v-html="content | marked"></div>
 			<input v-on:click.prevent="submit" class="btn btn-primary" type="submit" value="发表" />
 		</form>
 		<%- include content/flash %>
