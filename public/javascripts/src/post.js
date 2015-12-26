@@ -1,5 +1,5 @@
 $(window).load(function() {
-	new Vue({
+	var form = new Vue({
 		el: '.form',
 		data: {
 			title: "",
@@ -7,12 +7,20 @@ $(window).load(function() {
 		},
 		methods : {
 			submit:function(e){
-				alert('submit')
-				$('.form').submit();
+				console.log('submit')
+//				$('.form').submit();
 			}
 		},
 		filters: {
 			marked: marked
+		},
+		watch:{
+			'content':function(oldS,newS){
+				setTimeout(function(){
+					$('.markdown').scrollTop($(".markdown")[0].scrollHeight);
+				},300)
+			}
 		}
 	})
+	
 })
