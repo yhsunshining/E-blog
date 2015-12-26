@@ -9,6 +9,10 @@ router.get('/', function(req, res) {
 		if (err) {
 			posts = [];
 		}
+		for (var i=0,len = posts.length;i<len;i++){
+			var date = new Date(posts[i].time);
+			posts[i].time = date.format('yyyy-MM-dd');
+		}
 		res.render('index', {
 			title: 'Express',
 			user: req.session.user,
@@ -18,5 +22,6 @@ router.get('/', function(req, res) {
 		});
 	});
 });
+
 
 module.exports = router;

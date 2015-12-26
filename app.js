@@ -10,6 +10,7 @@ var settings = require('./settings');
 var flash = require('connect-flash');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var datePrototype=require('./utils/date');
 
 
 var app = express();
@@ -76,5 +77,6 @@ app.use(function(err, req, res, next) {
 		error: {}
 	});
 });
+
 
 module.exports = app;

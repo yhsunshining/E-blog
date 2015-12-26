@@ -6,7 +6,7 @@ var loginStatus = require('../models/loginStatus.js');
 router.get('/', loginStatus.checkLogin);
 router.get('/', function(req, res, next) {
 	res.render('post', {
-		title: 'post',
+		title: "post",
 		user: req.session.user,
 		success: req.flash('success').toString(),
 		error: req.flash('error').toString()

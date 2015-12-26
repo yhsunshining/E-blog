@@ -1,4 +1,5 @@
 var mongo = require('./db');
+var markdown = require('markdown').markdown;
 
 function Post(post) {
 	this.author = post.author;
@@ -12,7 +13,7 @@ Post.prototype.save = function(callback) {
 	var post = {
 		title: this.title,
 		author: this.author,
-		author_id:this.author_id,
+		author_id: this.author_id,
 		time: new Date().getTime(),
 		content: this.content
 	}
@@ -60,9 +61,14 @@ Post.get = function(query, callback) {
 			}).toArray(function(err, docs) {
 				mongo.close();
 				if (err) {
-					return callback(err); 
+					return callback(err);
 				}
-				callback(null, docs); 
+				
+				docs.forEach(function(doc) {
+					doc.content = markdown.toHTML(doc.content);
+				});
+				
+				callback(null, docs);
 			});
 		});
 	});

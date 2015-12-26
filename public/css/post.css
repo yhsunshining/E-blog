@@ -1,2 +1,2 @@
-html{font-size:1rem}form{font-size:0}form>*{font-size:1rem}form #content,form .markdown{display:inline-block;width:49%;height:400px;vertical-align:top;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0 20px;resize:none}form .markdown{border:1px solid #ccc}form code{color:#e96900}
+html{font-size:1rem}form{font-size:0}form>*{font-size:1rem}form #content,form .markdown{display:inline-block;width:49%;height:400px;vertical-align:top;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0 20px;resize:none}form .markdown{border:1px solid #ccc;overflow-x:hidden;overflow-y:auto}form .markdown::-webkit-scrollbar{visibility:hidden}form code{color:#e96900}
 /*# sourceMappingURL=post.css.map */
