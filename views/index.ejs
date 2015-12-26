@@ -19,19 +19,18 @@
 			</nav>
 		</header>
 		<%- include content/flash %>
-			<% posts.forEach(function (post, index) { %>
-				<p>
-					<h2><a href="#"><%= post.title %></a></h2></p>
-				<p class="info">
-					作者：
-					<a href="#">
-						<%= post.author %>
-					</a> | 日期：
-					<%= post.time %>
-				</p>
-				<p>
-					<%- post.content %>
-				</p>
-			<% }) %>
+		<% posts.forEach(function (post, index) { %>
+		<div class="item">
+			<h2><a href="#"><%= post.title %></a></h2>
+			<p class="info">
+				作者：
+				<a href="#">
+					<%= post.author %>
+				</a> | 日期：
+				<%= post.time %>
+			</p>
+			<p><%- post.content %></p>
+		</div>
+		<% }) %>
 	</body>
 </html>

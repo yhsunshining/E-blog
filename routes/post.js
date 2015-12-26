@@ -28,8 +28,8 @@ router.post('/', function(req, res, next) {
 			return res.redirect('/');
 		}
 		req.flash('success', '发布成功!');
-		res.send("{code:1}")
-//		res.redirect('/'); 
+//		res.send("{code:1}")
+		res.redirect('/'); 
 	});
 });
 

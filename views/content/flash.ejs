@@ -1,11 +1,7 @@
 <% if (success) { %>
-	<p>
-		<div><%= success %></div>
-	</p>
-	<% }else { %>
-	<p>
-		<div><%= error %></div>
-	</p>
+	<p><div><%= success %></div></p>
+<% }else if (error) { %>
+	<p><div><%= error %></div></p>
 <% } %>
 
 <% if (user != null) {%>
