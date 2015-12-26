@@ -1,0 +1,29 @@
+@import './utils/mixins';
+@import './utils/func';  
+html {
+    font-size: rem(14);  
+}
+form {
+    font-size: 0;
+    >*{ 
+        font-size: 1rem;
+    }
+    #content,
+    .markdown {
+        display: inline-block;
+        width: 49%;
+        height: 400px;
+        vertical-align: top;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 20px;
+        resize:  none;
+    }
+    .markdown {
+        border:1px solid #ccc;
+    }
+    code {
+      color: #e96900;
+    }
+}

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<%- include('content/meta',{title:title}) %>
+		<link rel="stylesheet" type="text/css" href="/css/post.css"/>
+		<script src="/javascripts/lib/marked.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/javascripts/src/post.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-
 	<body>
-		<form class="form" method="post">
+		<form class="form" method="post" action = "/post">
 			<label for="title">标题：</label>
-			<input class="form-control" type="text" name="title" id="title"/>
+			<input v-model="title" class="form-control" type="text" name="title" id="title"/>
 			<label for="content">正文：</label> 
-			<textarea class="form-control" name="content" id="content" rows="20" cols="100"></textarea>
-			<input class="btn btn-primary" type="submit" value="发表" />
+			<br />
+			<textarea v-model="content" debounce="300" class="form-control" name="content" id="content" rows="10" cols="40"></textarea>
+			<div class="markdown" v-html="content | marked"></div>
+			<input v-on:click.prevent="submit" class="btn btn-primary" type="submit" value="发表" />
 		</form>
 		<%- include content/flash %>
 	</body>
